@@ -3,19 +3,6 @@ defmodule EscriptTool do
   Documentation for `EscriptTool`.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> EscriptTool.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
-
   def main(args) do
     {opts, positional, invalid} =
       OptionParser.parse(args, strict: [help: :boolean], aliases: [h: :help])
@@ -29,7 +16,7 @@ defmodule EscriptTool do
         System.halt(2)
 
       true ->
-        IO.puts(hello())
+        IO.puts("Positional arguments: #{inspect(positional)}")
     end
   end
 end
